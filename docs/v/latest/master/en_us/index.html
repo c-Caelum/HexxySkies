@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
       <title>Hexxy Skies Book</title>
       <meta charset="utf-8" />
@@ -77,7 +77,7 @@
       <ul class="nav navbar-nav navbar-right">
             <li>
     <a
-      href="https://github.com/TechTastic/HexxySkies/tree/8577f3ed2187db020aea0184194596d035e5532c"
+      href="https://github.com/TechTastic/HexxySkies/tree/8c167c38aba4dd92f8c56887fb1acff8c6bd182b"
         target="_blank"
       class="navbar-link"
       role="button"
@@ -726,7 +726,7 @@
         data-per-world="False"
       >Your browser does not support visualizing patterns. Pattern code: wawawqaqwa</canvas>
   </details>
-      <p>Takes a <span style="color: #8d6acc">Ship</span>, an axial vector for new gravity, and a strength scalar relative to standard pull.</p>
+      <p>Takes a <span style="color: #8d6acc">Ship</span>, an axial vector for new gravity, and a strength scalar relative to standard pull. Costs one dust per kg of mass.</p>
   </div>
 <br />
   <div id="interop/hexodus_navimancy@hexodus:get_duration" class="">
@@ -1027,9 +1027,9 @@
     class="permalink small"
     title="Permalink"
   ><i class="bi bi-link-45deg"></i></a></h3>
-  <div id="interop/moreiotas_navimancy@hexxyskies:slug" class="">
-<h4 class="pattern-title">Boatwright&#39;s Prfn. (ship → string)<a
-    href="#interop/moreiotas_navimancy@hexxyskies:slug"
+  <div id="interop/moreiotas_navimancy@moreiotas:string/name/get" class="">
+<h4 class="pattern-title">Moniker Purification (ship → string)<a
+    href="#interop/moreiotas_navimancy@moreiotas:string/name/get"
     class="permalink small"
     title="Permalink"
   ><i class="bi bi-link-45deg"></i></a></h4>
@@ -1075,12 +1075,12 @@
         class="spell-viz"
         width="216"
         height="216"
-        data-string="wdewwedwqeqawqa"
-        data-start="east"
+        data-string="deqqeddqwqqqwq"
+        data-start="south_east"
         data-per-world="False"
-      >Your browser does not support visualizing patterns. Pattern code: wdewwedwqeqawqa</canvas>
+      >Your browser does not support visualizing patterns. Pattern code: deqqeddqwqqqwq</canvas>
   </details>
-      <p>Returns the <span style="color: #8d6acc">Ship</span>&#39;s slug</p>
+      <p>Takes a <span style="color: #8d6acc">Ship</span> and returns that <span style="color: #8d6acc">Ship</span>&#39;s slug.</p>
   </div>
 <br />
   <div id="interop/moreiotas_navimancy@hexxyskies:matrix/moment_of_inertia_tensor" class="">
@@ -1997,6 +1997,11 @@
       <p>Scales the given <span style="color: #8d6acc">Ship</span> to the given size. The size must be between 1/16th and 16. Cost is one Shard times the size difference.</p>
   </div>
 <br />
+  <h4>Forces and Torques</h4>
+    <p>Due to the latent power of Navimancy, applying <span style="color: #8d6acc">Forces</span> and <span style="color: #8d6acc">Torques</span> to <span style="color: #8d6acc">Ships</span>, Nature extracts a toll. That cost can be calculated as such:</p><p>C=0.1+10×(<strong><i>F→</i></strong>÷(60×m×10))²×√(m÷1000)<br />Where <strong><i>F→</i></strong> is the length of the <span style="color: #8d6acc">Force</span> or <span style="color: #8d6acc">Torque</span> and m is the <span style="color: #8d6acc">Ship</span>&#39;s mass.</p><p>This means that when pushing a 1Mg <span style="color: #8d6acc">Ship</span> to 10 blocks/second in one cast (whose duration is 1/60th of a second, hence the 60), it will cost me 10.1 dust.</p>
+<br />
+    <p>Aside from the constant base cost, the spell will cost many times more when trying to accelerate a given ship more, just as Impulse would. However, the cost to accelerate by a fixed speed grows much slower from mass. This means that I won&#39;t be able to make boats fly into the sun, but I could possibly levitate a large vessel if I am careful...</p>
+<br />
   <div id="patterns/spells/navimancy@hexxyskies:force/world" class="">
 <h4 class="pattern-title">Nature&#39;s Push (ship, force, pos →)<a
     href="#patterns/spells/navimancy@hexxyskies:force/world"
@@ -2106,12 +2111,12 @@
         data-per-world="False"
       >Your browser does not support visualizing patterns. Pattern code: wdewwedwqqqdaqqqa</canvas>
   </details>
-      <p>Applies a <a href="#basics/navimancy@hexxyskies:page/forces_torques">Torque</a> at a given <a href="#basics/navimancy@hexxyskies:page/space/world">World Space</a> position. The position is any offset from the <a href="#patterns/navimancy@hexxyskies:com/world">Center of Mass</a> in <span style="color: #8d6acc">World Space</span>.</p>
+      <p>Applies a <a href="#basics/navimancy@hexxyskies:page/forces_torques">Torque</a> specified by the vector in <a href="#basics/navimancy@hexxyskies:page/space/world">World Space</a>.</p>
   </div>
 <br />
-  <div id="patterns/spells/navimancy@hexxyskies:force/body" class="">
+  <div id="patterns/spells/navimancy@hexxyskies:force/model" class="">
 <h4 class="pattern-title">Shipyard&#39;s Push (ship, force, pos →)<a
-    href="#patterns/spells/navimancy@hexxyskies:force/body"
+    href="#patterns/spells/navimancy@hexxyskies:force/model"
     class="permalink small"
     title="Permalink"
   ><i class="bi bi-link-45deg"></i></a></h4>
@@ -2165,9 +2170,9 @@
       <p>Applies a <a href="#basics/navimancy@hexxyskies:page/forces_torques">Force</a> at a given <a href="#basics/navimancy@hexxyskies:page/space/model_body">Model Space</a> position. The position is any offset from the <a href="#patterns/navimancy@hexxyskies:com/model">Center of Mass</a> in <span style="color: #8d6acc">Model Space</span>.</p>
   </div>
 <br />
-  <div id="patterns/spells/navimancy@hexxyskies:torque/body" class="">
+  <div id="patterns/spells/navimancy@hexxyskies:torque/model" class="">
 <h4 class="pattern-title">Shipyard&#39;s Twist (ship, torque →)<a
-    href="#patterns/spells/navimancy@hexxyskies:torque/body"
+    href="#patterns/spells/navimancy@hexxyskies:torque/model"
     class="permalink small"
     title="Permalink"
   ><i class="bi bi-link-45deg"></i></a></h4>
@@ -2218,12 +2223,12 @@
         data-per-world="False"
       >Your browser does not support visualizing patterns. Pattern code: wdewwedwqqqadeeed</canvas>
   </details>
-      <p>Applies a <a href="#basics/navimancy@hexxyskies:page/forces_torques">Torque</a> at a given <a href="#basics/navimancy@hexxyskies:page/space/model_body">Model Space</a> position. The position is any offset from the <a href="#patterns/navimancy@hexxyskies:com/model">Center of Mass</a> in <span style="color: #8d6acc">Model Space</span>.</p>
+      <p>Applies a <a href="#basics/navimancy@hexxyskies:page/forces_torques">Torque</a> specified by the vector in <a href="#basics/navimancy@hexxyskies:page/space/model_body">Model Space</a></p>
   </div>
 <br />
-  <div id="patterns/spells/navimancy@hexxyskies:force/model" class="">
+  <div id="patterns/spells/navimancy@hexxyskies:force/body" class="">
 <h4 class="pattern-title">Helmsman&#39;s Push (ship, force, pos →)<a
-    href="#patterns/spells/navimancy@hexxyskies:force/model"
+    href="#patterns/spells/navimancy@hexxyskies:force/body"
     class="permalink small"
     title="Permalink"
   ><i class="bi bi-link-45deg"></i></a></h4>
@@ -2277,9 +2282,9 @@
       <p>Applies a <a href="#basics/navimancy@hexxyskies:page/forces_torques">Force</a> at a given <a href="#basics/navimancy@hexxyskies:page/space/model_body">Body Space</a> position. The position is any offset from the Center of Mass in <span style="color: #8d6acc">Body Space</span> which is always (0, 0, 0).</p>
   </div>
 <br />
-  <div id="patterns/spells/navimancy@hexxyskies:torque/model" class="">
+  <div id="patterns/spells/navimancy@hexxyskies:torque/body" class="">
 <h4 class="pattern-title">Helmsman&#39;s Twist (ship, torque →)<a
-    href="#patterns/spells/navimancy@hexxyskies:torque/model"
+    href="#patterns/spells/navimancy@hexxyskies:torque/body"
     class="permalink small"
     title="Permalink"
   ><i class="bi bi-link-45deg"></i></a></h4>
@@ -2330,7 +2335,7 @@
         data-per-world="False"
       >Your browser does not support visualizing patterns. Pattern code: wdewwedweweedaqqqa</canvas>
   </details>
-      <p>Applies a <a href="#basics/navimancy@hexxyskies:page/forces_torques">Torque</a> at a given <a href="#basics/navimancy@hexxyskies:page/space/model_body">Body Space</a> position. The position is any offset from the Center of Mass in <span style="color: #8d6acc">Body Space</span> which is always (0, 0, 0).</p>
+      <p>Applies a <a href="#basics/navimancy@hexxyskies:page/forces_torques">Torque</a>  specified by the vector in <a href="#basics/navimancy@hexxyskies:page/space/model_body">Body Space</a>.</p>
   </div>
 <br />
 </div>
