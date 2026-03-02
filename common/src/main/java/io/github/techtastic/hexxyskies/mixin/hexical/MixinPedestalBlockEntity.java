@@ -23,8 +23,9 @@ public class MixinPedestalBlockEntity {
 
     @Inject(method = "configureItemEntity", at = @At("TAIL"), remap = false)
     private void valkyrienskies$putItemInShipyard(CallbackInfo ci) {
-        BlockPos pos = ((PedestalBlockEntity) ((Object) this)).getBlockPos();
-        if (((PedestalBlockEntity) ((Object) this)).getLevel() instanceof ServerLevel level) {
+        BlockEntity blockEntity = ((BlockEntity) ((Object) this));
+        BlockPos pos = blockEntity.getBlockPos();
+        if (blockEntity.getLevel() instanceof ServerLevel level) {
             LoadedServerShip ship = VSGameUtilsKt.getLoadedShipManagingPos(level, pos);
             if (heldEntity != null && ship != null) {
                 DefaultShipyardEntityHandler.INSTANCE.moveEntityFromWorldToShipyard(heldEntity, ship);
